@@ -1,23 +1,69 @@
 # Fluid Simulation
 
-## Description
-This is a **real-time 2D fluid simulation** based on the **Navier-Stokes equations**, implemented using **Python, NumPy, and Pygame**. It simulates fluid movement and allows users to interact with the simulation by adding velocity and density.
+## Overview
+This project is a real-time 2D fluid simulation using numerical methods to approximate the Navier-Stokes equations. The simulation is implemented in Python with Pygame for visualization.
 
 ## Features
-- **Realistic Fluid Behavior**: Simulates velocity, diffusion, and advection.
-- **User Interaction**: Click and drag to introduce fluid and velocity.
-- **Toggleable Velocity Field**: Press `V` to visualize velocity vectors.
-- **Pause and Resume**: Press `SPACE` to pause or resume the simulation.
-- **Clear Simulation**: Press `C` to reset the fluid state.
-- **Random Forces**: Press `R` to add random forces and density.
+- Real-time fluid simulation with velocity and density fields
+- User interaction to add forces and density
+- Pygame-based visualization
+- Adjustable parameters (diffusion, viscosity, time step)
+- Velocity and density visualization
 
-## Requirements
-- Python 3.x
-- NumPy
-- Pygame
+## Mathematical Background
 
-### Install Dependencies
-Run the following command to install the required libraries:
+The simulation is based on the Navier-Stokes equations, which describe fluid motion:
 
-```bash
+\[
+\frac{\partial \mathbf{u}}{\partial t} + (\mathbf{u} \cdot \nabla) \mathbf{u} = - \frac{1}{\rho} \nabla p + \nu \nabla^2 \mathbf{u} + \mathbf{f}
+\]
+
+where:
+- \( \mathbf{u} \) is the velocity field
+- \( p \) is the pressure
+- \( \rho \) is the density
+- \( \nu \) is the viscosity
+- \( \mathbf{f} \) represents external forces
+
+Additionally, the incompressibility condition is enforced:
+
+\[
+\nabla \cdot \mathbf{u} = 0
+\]
+
+### Discretization
+
+The simulation uses a grid-based discretization with numerical techniques:
+- **Semi-Lagrangian advection**: Traces fluid particles backward in time for stability.
+- **Gauss-Seidel relaxation**: Solves diffusion and pressure projection iteratively.
+- **Pressure projection**: Ensures incompressibility by solving a Poisson equation.
+
+## Installation
+
+### Prerequisites
+Ensure you have Python installed along with the required dependencies:
+
+```sh
 pip install numpy pygame
+```
+
+### Running the Simulation
+To start the simulation, run:
+
+```sh
+python fluidsim.py
+```
+
+## Usage
+
+### Controls
+- **Left Mouse Click**: Add fluid density and velocity.
+- **Space**: Pause/unpause simulation.
+- **V**: Toggle velocity visualization.
+- **C**: Clear simulation.
+- **R**: Add random forces.
+- **Escape**: Quit the simulation.
+
+## Code Structure
+- `FluidSimulator`: Handles fluid dynamics calculations.
+- `FluidSimulationGame`: Manages Pygame visualization and user interactions.
