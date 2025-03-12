@@ -14,22 +14,22 @@ This project is a real-time 2D fluid simulation using numerical methods to appro
 
 The simulation is based on the Navier-Stokes equations, which describe fluid motion:
 
-\[
-\frac{\partial \mathbf{u}}{\partial t} + (\mathbf{u} \cdot \nabla) \mathbf{u} = - \frac{1}{\rho} \nabla p + \nu \nabla^2 \mathbf{u} + \mathbf{f}
-\]
+```
+∂u/∂t + (u ⋅ ∇)u = - (1/ρ) ∇p + ν ∇²u + f
+```
 
 where:
-- \( \mathbf{u} \) is the velocity field
-- \( p \) is the pressure
-- \( \rho \) is the density
-- \( \nu \) is the viscosity
-- \( \mathbf{f} \) represents external forces
+- `u` is the velocity field
+- `p` is the pressure
+- `ρ` is the density
+- `ν` is the viscosity
+- `f` represents external forces
 
 Additionally, the incompressibility condition is enforced:
 
-\[
-\nabla \cdot \mathbf{u} = 0
-\]
+```
+∇ ⋅ u = 0
+```
 
 ### Discretization
 
