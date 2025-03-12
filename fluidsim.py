@@ -203,18 +203,30 @@ class FluidSimulationGame:
         self.add_initial_density()
 
     def create_colormap(self):
-        """Create a blue to red colormap for density visualization"""
+        """Create a colorful colormap transitioning through multiple hues"""
         self.colormap = []
         for i in range(256):
-            # Blue (cold) to red (hot) gradient
-            if i < 128:  # Blue to purple
-                r = int(i * 2)
-                g = 0
+            if i < 51:  # Blue to Cyan
+                r = 0
+                g = int(i * 5)
                 b = 255
-            else:  # Purple to red
+            elif i < 102:  # Cyan to Green
+                r = 0
+                g = 255
+                b = int(255 - (i - 51) * 5)
+            elif i < 153:  # Green to Yellow
+                r = int((i - 102) * 5)
+                g = 255
+                b = 0
+            elif i < 204:  # Yellow to Orange
+                r = 255
+                g = int(255 - (i - 153) * 5)
+                b = 0
+            else:  # Orange to Red
                 r = 255
                 g = 0
-                b = int(255 - (i - 128) * 2)
+                b = 0
+
             self.colormap.append((r, g, b))
 
     def add_initial_density(self):
