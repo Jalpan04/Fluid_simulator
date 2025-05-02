@@ -49,16 +49,26 @@ With the incompressibility constraint:
   <img src="https://latex.codecogs.com/png.latex?\nabla&space;\cdot&space;\mathbf{u}&space;=&space;0" title="Incompressibility Constraint" />
 </div>
 
-### Numerical Methods
+### Navier-Stokes Equations
 
-The simulation employs sophisticated numerical techniques:
+The simulation solves the incompressible Navier-Stokes equations:
 
-- **Semi-Lagrangian Advection**: For stable transport of velocity and density
-- **Gauss-Seidel Relaxation**: Iterative solver for diffusion equations
-- **Pressure Projection**: Helmholtz-Hodge decomposition to enforce incompressibility
-- **Staggered Grid**: MAC (Marker-and-Cell) grid structure for stable discretization
+```
+∂u/∂t + (u ⋅ ∇)u = -(1/ρ)∇p + ν∇²u + f
+```
 
-## 🚀 Getting Started
+Where:
+- **u**: Velocity field
+- **p**: Pressure
+- **ρ**: Density
+- **ν**: Viscosity coefficient
+- **f**: External forces
+
+With the incompressibility constraint:
+
+```
+∇ ⋅ u = 0
+```
 
 ### Prerequisites
 
@@ -153,3 +163,9 @@ config = {
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
+
+<div align="center">
+  <p>
+    <i>Developed with ❤️ and a passion for computational physics</i>
+  </p>
+</div>
