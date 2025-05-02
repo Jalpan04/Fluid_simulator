@@ -164,8 +164,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-<div align="center">
-  <p>
-    <i>Developed with ❤️ and a passion for computational physics</i>
-  </p>
-</div>
